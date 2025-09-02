@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { readJsonFile } from '@/src/lib/storage/jsonStore';
 import { EvaluationResult, Obligation } from '@/src/lib/types';
-import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
+import { PDFDocument, StandardFonts, rgb, type PDFFont } from 'pdf-lib';
 
 export async function GET(_req: NextRequest, { params }: { params: { evaluationId: string } }) {
   const evaluations = await readJsonFile<EvaluationResult[]>('evaluations.json', []);
@@ -33,7 +33,7 @@ export async function GET(_req: NextRequest, { params }: { params: { evaluationI
     }
   }
 
-  function wrapText(text: string, maxWidth: number, size: number, f: any) {
+  function wrapText(text: string, maxWidth: number, size: number, f: PDFFont) {
     const words = text.split(' ');
     const lines: string[] = [];
     let current = '';

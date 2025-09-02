@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     data.push(body);
     await writeJsonFile('obligations.json', data);
     return NextResponse.json(body, { status: 201 });
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
   }
 }
@@ -31,7 +31,7 @@ export async function PUT(req: NextRequest) {
     data[idx] = body;
     await writeJsonFile('obligations.json', data);
     return NextResponse.json(body);
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
   }
 }
