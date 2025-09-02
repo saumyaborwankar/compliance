@@ -117,10 +117,8 @@ export default function IntakePage() {
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || 'Failed');
-      if (typeof window !== 'undefined') {
-        sessionStorage.setItem('latest_evaluation', JSON.stringify(json));
-      }
-      router.push(`/results/local`);
+      const encoded = typeof window !== 'undefined' ? btoa(encodeURIComponent(JSON.stringify(json))) : '';
+      router.push(`/results/view#${encoded}`);
     } catch {
       alert('Submission failed.');
     } finally {
