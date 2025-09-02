@@ -3,10 +3,11 @@ import { readJsonFile } from '@/src/lib/storage/jsonStore';
 import { EvaluationResult, Obligation } from '@/src/lib/types';
 import { PDFDocument, StandardFonts, rgb, type PDFFont } from 'pdf-lib';
 
-export async function GET(_req: NextRequest, { params }: { params: { evaluationId: string } }) {
+export async function GET(_req: NextRequest, { params }: { params: Promise<{ evaluationId: string }> }) {
+  const { evaluationId } = await params;
   const evaluations = await readJsonFile<EvaluationResult[]>('evaluations.json', []);
   const obligations = await readJsonFile<Obligation[]>('obligations.json', []);
-  const ev = evaluations.find((e) => e.id === params.evaluationId);
+  const ev = evaluations.find((e) => e.id === evaluationId);
   if (!ev) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
   const byId = new Map(obligations.map((o) => [o.id, o] as const));
