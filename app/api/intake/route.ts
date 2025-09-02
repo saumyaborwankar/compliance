@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { appendToJsonArray } from '@/src/lib/storage/jsonStore';
-import { BusinessProfile } from '@/src/lib/types';
+import { BusinessProfile, Obligation } from '@/src/lib/types';
 import { evaluateBusinessAgainstObligations } from '@/src/lib/rules/evaluator';
 import crypto from 'crypto';
+import { readJsonFile } from '@/src/lib/storage/jsonStore';
 
 export async function POST(req: NextRequest) {
   try {
@@ -36,13 +36,11 @@ export async function POST(req: NextRequest) {
       },
     };
 
-    // Persist business
-    await appendToJsonArray<BusinessProfile>('businesses.json', business);
-
-    // Evaluate
+    // Evaluate without persisting to disk
     const evaluation = await evaluateBusinessAgainstObligations(business);
+    const obligations = await readJsonFile<Obligation[]>('obligations.json', []);
 
-    return NextResponse.json({ businessId: business.id, evaluationId: evaluation.id }, { status: 201 });
+    return NextResponse.json({ business, evaluation, obligations }, { status: 201 });
   } catch (err) {
     console.error(err);
     return NextResponse.json({ error: 'Failed to process intake' }, { status: 500 });

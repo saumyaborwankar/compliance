@@ -117,7 +117,10 @@ export default function IntakePage() {
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || 'Failed');
-      router.push(`/results/${json.evaluationId}`);
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('latest_evaluation', JSON.stringify(json));
+      }
+      router.push(`/results/local`);
     } catch {
       alert('Submission failed.');
     } finally {

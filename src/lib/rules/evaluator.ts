@@ -1,5 +1,5 @@
 import { Obligation, BusinessProfile, TriggerPredicate, TriggerMatchExplanation, ObligationEvaluation, EvaluationResult } from '../types';
-import { readJsonFile, writeJsonFile } from '../storage/jsonStore';
+import { readJsonFile } from '../storage/jsonStore';
 import crypto from 'crypto';
 
 function getValueByPath(obj: unknown, path: string): unknown {
@@ -74,10 +74,6 @@ export async function evaluateBusinessAgainstObligations(business: BusinessProfi
     evaluatedAt: new Date().toISOString(),
     appliedObligations,
   };
-
-  const results = await readJsonFile<EvaluationResult[]>('evaluations.json', []);
-  results.push(evaluation);
-  await writeJsonFile('evaluations.json', results);
 
   return evaluation;
 }
