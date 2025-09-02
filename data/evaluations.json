@@ -1,0 +1,132 @@
+[
+  {
+    "id": "71023a92-a0c9-4063-b827-8651b01d8ef1",
+    "businessId": "3a89836d-fc14-45b2-ace3-c53d96514643",
+    "evaluatedAt": "2025-09-02T13:32:03.425Z",
+    "appliedObligations": [
+      {
+        "obligationId": "flsa_min_wage_poster",
+        "applied": true,
+        "explanation": {
+          "title": "FLSA Minimum Wage Poster",
+          "jurisdiction": "federal",
+          "matchedPredicates": [
+            {
+              "factPath": "employeeCount",
+              "operator": "gte",
+              "expected": 1,
+              "actual": 10,
+              "matched": true
+            }
+          ]
+        }
+      },
+      {
+        "obligationId": "osha_hazard_communication_program",
+        "applied": false,
+        "explanation": {
+          "title": "OSHA Hazard Communication Program",
+          "jurisdiction": "federal",
+          "matchedPredicates": [
+            {
+              "factPath": "activities.handlesHazardousMaterials",
+              "operator": "equals",
+              "expected": true,
+              "actual": false,
+              "matched": false
+            }
+          ]
+        }
+      },
+      {
+        "obligationId": "ca_wage_notice",
+        "applied": false,
+        "explanation": {
+          "title": "California Wage Theft Prevention Act Notice",
+          "jurisdiction": "state",
+          "matchedPredicates": [
+            {
+              "factPath": "location.state",
+              "operator": "equals",
+              "expected": "CA",
+              "actual": "IL",
+              "matched": false
+            },
+            {
+              "factPath": "employeeCount",
+              "operator": "gte",
+              "expected": 1,
+              "actual": 10,
+              "matched": true
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "58811c82-2bb4-4013-a245-44a83a23d97d",
+    "businessId": "93732d7b-b9bf-4774-8647-541dcbd860e3",
+    "evaluatedAt": "2025-09-02T14:31:35.440Z",
+    "appliedObligations": [
+      {
+        "obligationId": "flsa_min_wage_poster",
+        "applied": true,
+        "explanation": {
+          "title": "FLSA Minimum Wage Poster",
+          "jurisdiction": "federal",
+          "matchedPredicates": [
+            {
+              "factPath": "employeeCount",
+              "operator": "gte",
+              "expected": 1,
+              "actual": 4,
+              "matched": true
+            }
+          ]
+        }
+      },
+      {
+        "obligationId": "osha_hazard_communication_program",
+        "applied": false,
+        "explanation": {
+          "title": "OSHA Hazard Communication Program",
+          "jurisdiction": "federal",
+          "matchedPredicates": [
+            {
+              "factPath": "activities.handlesHazardousMaterials",
+              "operator": "equals",
+              "expected": true,
+              "actual": false,
+              "matched": false
+            }
+          ]
+        }
+      },
+      {
+        "obligationId": "ca_wage_notice",
+        "applied": false,
+        "explanation": {
+          "title": "California Wage Theft Prevention Act Notice",
+          "jurisdiction": "state",
+          "matchedPredicates": [
+            {
+              "factPath": "location.state",
+              "operator": "equals",
+              "expected": "CA",
+              "actual": "IL",
+              "matched": false
+            },
+            {
+              "factPath": "employeeCount",
+              "operator": "gte",
+              "expected": 1,
+              "actual": 4,
+              "matched": true
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

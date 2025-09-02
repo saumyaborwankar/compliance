@@ -1,0 +1,56 @@
+[
+  {
+    "id": "3a89836d-fc14-45b2-ace3-c53d96514643",
+    "createdAt": "2025-09-02T13:32:03.417Z",
+    "updatedAt": "2025-09-02T13:32:03.417Z",
+    "name": "",
+    "location": {
+      "state": "IL",
+      "city": "Chicago",
+      "zip": "60616"
+    },
+    "industry": {
+      "naicsCode": "Banking",
+      "description": "Full service"
+    },
+    "employeeCount": 10,
+    "entityType": "llc",
+    "activities": {
+      "servesFood": true,
+      "sellsAlcohol": false,
+      "handlesPersonalData": true,
+      "employsMinors": false,
+      "providesHealthcare": false,
+      "operatesVehicles": false,
+      "handlesHazardousMaterials": false,
+      "eCommerce": false
+    }
+  },
+  {
+    "id": "93732d7b-b9bf-4774-8647-541dcbd860e3",
+    "createdAt": "2025-09-02T14:31:35.436Z",
+    "updatedAt": "2025-09-02T14:31:35.436Z",
+    "name": "",
+    "location": {
+      "state": "IL",
+      "city": "Chicago",
+      "zip": "60616"
+    },
+    "industry": {
+      "naicsCode": "722511",
+      "description": "REstaurant"
+    },
+    "employeeCount": 4,
+    "entityType": "llc",
+    "activities": {
+      "servesFood": false,
+      "sellsAlcohol": false,
+      "handlesPersonalData": false,
+      "employsMinors": true,
+      "providesHealthcare": false,
+      "operatesVehicles": true,
+      "handlesHazardousMaterials": false,
+      "eCommerce": false
+    }
+  }
+]

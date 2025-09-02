@@ -1,0 +1,66 @@
+[
+  {
+    "id": "flsa_min_wage_poster",
+    "title": "FLSA Minimum Wage Poster",
+    "summary": "Most employers must display the Federal Minimum Wage poster.",
+    "jurisdiction": "federal",
+    "topics": ["labor"],
+    "triggers": [
+      { "fact": "employeeCount", "operator": "gte", "value": 1 }
+    ],
+    "actions": [
+      { "summary": "Post the FLSA Minimum Wage poster in a conspicuous place." },
+      { "summary": "Ensure poster is the most current version." }
+    ],
+    "frequency": "ongoing",
+    "penalties": "Potential DOL penalties for non-compliance.",
+    "citations": [
+      { "url": "https://www.dol.gov/agencies/whd/posters/flsa", "text": "DOL FLSA Poster" }
+    ],
+    "last_reviewed": "2024-06-01",
+    "version": "1.0.0"
+  },
+  {
+    "id": "osha_hazard_communication_program",
+    "title": "OSHA Hazard Communication Program",
+    "summary": "Employers with hazardous chemicals must have a written HazCom program.",
+    "jurisdiction": "federal",
+    "topics": ["safety"],
+    "triggers": [
+      { "fact": "activities.handlesHazardousMaterials", "operator": "equals", "value": true }
+    ],
+    "actions": [
+      { "summary": "Develop and implement a written hazard communication program." },
+      { "summary": "Maintain Safety Data Sheets (SDS) and employee training." }
+    ],
+    "frequency": "ongoing",
+    "penalties": "OSHA citations and fines.",
+    "citations": [
+      { "url": "https://www.osha.gov/hazcom", "text": "OSHA HazCom" }
+    ],
+    "last_reviewed": "2024-06-01",
+    "version": "1.0.0"
+  },
+  {
+    "id": "ca_wage_notice",
+    "title": "California Wage Theft Prevention Act Notice",
+    "summary": "CA employers must provide a wage notice to non-exempt employees at hire.",
+    "jurisdiction": "state",
+    "state": "CA",
+    "topics": ["labor"],
+    "triggers": [
+      { "fact": "location.state", "operator": "equals", "value": "CA" },
+      { "fact": "employeeCount", "operator": "gte", "value": 1 }
+    ],
+    "actions": [
+      { "summary": "Provide written wage notice to non-exempt employees at hire." }
+    ],
+    "frequency": "at_hire",
+    "penalties": "Penalties under CA Labor Code §2810.5.",
+    "citations": [
+      { "url": "https://www.dir.ca.gov/dlse/FAQ_NoticeToEmployee.html", "text": "CA DLSE Notice to Employee" }
+    ],
+    "last_reviewed": "2024-06-01",
+    "version": "1.0.0"
+  }
+]
